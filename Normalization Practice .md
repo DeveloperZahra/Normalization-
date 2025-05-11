@@ -1,4 +1,4 @@
-?  Case1: Company system � UNF table 
+﻿❖  Case1: Company system – UNF table 
 ----------------------------------------------------------
 
 |EmployeeID | EmployeeName | Department| Projects|  Manager |
@@ -8,9 +8,9 @@
 |E003| Aisha| IT |P102:Mobile App, P104:Database Upgrade| Eng. Khalid 
 
  ------------------
- there are duplicate values ??in this table, I will use the conversion method to the _**First Normal Form (1NF)**_
+ there are duplicate values ​​in this table, I will use the conversion method to the _**First Normal Form (1NF)**_
 
-After 1NF (split into  2 tables:
+After 1NF (split into  2 tables):
 
 1)
 
@@ -32,7 +32,7 @@ After 1NF (split into  2 tables:
 
 ------------------------------------------------
 
-?  Case 2: University System � UNF Table
+❖  Case 2: University System – UNF Table
 ---------------------------------------------
 |StudentID| StudentName| Department| Courses Enrolled |Advisor |
 |---------|------------|-----------|-------------------|--------|
@@ -41,9 +41,9 @@ After 1NF (split into  2 tables:
 |S003| Noura| CS |C101:DB, C104:Cybersecurity| Dr. Omar |
  
  
-  there are duplicate values ??in this table, I will use the conversion method to the _**First Normal Form (1NF)**_
+  there are duplicate values ​​in this table, I will use the conversion method to the _**First Normal Form (1NF)**_
 
-After 1NF (split into  2 tables:
+After 1NF (split into  2 tables):
 
 1)
 
@@ -62,3 +62,45 @@ After 1NF (split into  2 tables:
 |S002|C103:Marketing|
 |S003|C101:DB|
 |S003|C104:Cybersecurity|
+
+----------------------------------------
+  Case 3: Airline System – UNF Table 
+  --------------------------------------------
+
+|BookingID| PassengerName| Flights| SeatNumbers | PaymentMethod |
+|---------|---------------|---------------|----------|------------|
+|B001 |Salem |F101:Muscat-Dubai, F102:Dubai-London |12A, 14C| Credit Card|
+|B002| Fatma| F103:Muscat-Istanbul| 10B| PayPal| 
+|B003| Zayed| F104:Istanbul-Paris, F105:Paris-Oslo |9A, 13A |Credit Car|
+
+ there are duplicate values ​​in this table, I will use the conversion method to the _**First Normal Form (1NF)**_
+
+After 1NF (split into  3 tables):
+
+1)
+
+|BookingID| PassengerName|PaymentMethod |
+|---------|--------------|--------------|
+|B001 |Salem |Credit Card|
+|B002| Fatma| PayPal| 
+|B003| Zayed|Credit Car|
+
+2)
+
+|BookingID|Flights|
+|----------|--------|
+|B001 |F101:Muscat-Dubai|
+|B001 |F102:Dubai-London |
+|B002| F103:Muscat-Istanbul|
+|B003|F104:Istanbul-Paris|
+|B003| F105:Paris-Oslo|
+
+3)
+
+|BookingID|SeatNumbers |
+|----------|--------|
+|B001 |12A|
+|B001 |14C|
+|B002|10B|
+|B003|9A|
+|B003|13A|
