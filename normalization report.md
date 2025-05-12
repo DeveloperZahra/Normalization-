@@ -239,3 +239,69 @@ Data combinations can be misleading without careful normalization.
 | 4NF         | Multi-valued dependencies | No unrelated multi-valued facts            |
 | 5NF         | Join dependencies         | Reconstructable without loss or redundancy |
 
+---------------------------------------------------------
+ 🔸 De-Normalization:
+
+
+De-Normalization is the intentional process of introducing redundancy into a database design
+by combining tables that were previously separated during normalization.
+
+🔸 Why Apply De-Normalization?
+
+ 1. Improved Read Performance
+	
+Joins between many normalized tables can slow down query performance.
+
+By combining related tables, you reduce the number of joins needed.
+
+ 2. Simpler Queries
+	
+Easier for developers or reporting tools to retrieve data from fewer tables.
+
+ 3. Faster Reporting
+	
+Especially useful in OLAP systems (data warehousing) where reads are more frequent than writes.
+
+ 4. Precomputed Data
+	
+Storing derived or aggregated data (e.g., total sales per month) avoids recalculating every time.
+
+ 🔸 When to Apply De-Normalization?
+
+ Apply de-normalization only after normalization and when:
+
+ | Condition                                 | Explanation                                            |
+| ----------------------------------------- | ------------------------------------------------------ |
+| **Read-heavy workloads**                  | In systems with many SELECT operations and few updates |
+| **Performance bottlenecks**               | Queries are too slow due to multiple joins             |
+| **Data is rarely updated**                | Redundancy is acceptable if data doesn't change often  |
+| **Data warehousing or reporting systems** | OLAP environments benefit from denormalized structures |
+
+🔸 Example: Before vs. After De-Normalization
+
+🔹 Normalized Design
+
+* Orders Table
+
+| OrderID | CustomerID | Date       |
+| ------- | ---------- | ---------- |
+| 101     | C01        | 2024-01-01 |
+
+* Customers Table
+
+| CustomerID | Name     | City     |
+| ---------- | -------- | -------- |
+| C01        | John Doe | New York |
+
+
+Query to get customer city: Requires a JOIN between Orders and Customers.
+
+🔹 De-Normalized Design
+
+* Orders Table
+
+| OrderID | CustomerID | CustomerName | City     | Date       |
+| ------- | ---------- | ------------ | -------- | ---------- |
+| 101     | C01        | John Doe     | New York | 2024-01-01 |
+
+Now, the customer’s name and city are stored directly in the orders table — no join needed.
