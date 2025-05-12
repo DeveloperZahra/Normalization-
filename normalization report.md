@@ -117,3 +117,66 @@ Here, DepartmentLocation depends on Department, not on StudentID.
 | ---------- | ------------------ |
 | CS         | Building A         |
 
+---------------------------------------
+4) BCNF – Boyce-Codd Normal Form
+
+🔹Definition:
+
+A relation is in BCNF if:
+
+It is in 3NF
+
+Every determinant is a candidate key
+
+🔹 Use Case:
+
+Use BCNF when non-prime attributes determine other fields but are not candidate keys.
+
+🔹 Before BCNF: 
+
+| Professor | Subject | Department |
+| --------- | ------- | ---------- |
+| Smith     | DBMS    | CS         |
+| Smith     | OS      | CS         |
+
+Here, Professor → Department, but Professor is not a candidate key.
+
+* ProfessorDept Table
+
+| Professor | Department |
+| --------- | ---------- |
+| Smith     | CS         |
+
+
+* Teaching Table
+
+| Professor | Subject |
+| --------- | ------- |
+| Smith     | DBMS    |
+| Smith     | OS      |
+
+----------------------------------
+
+5) 4NF – Fourth Normal Form
+
+🔹Definition:
+
+A relation is in 4NF if:
+
+It is in BCNF
+
+It has no multi-valued dependencies
+
+🔹Use Case:
+
+Apply 4NF when multiple independent multi-valued facts exist in the same table.
+
+ 🔹 Before 4NF:
+
+ | Student | Course  | Hobby    |
+| ------- | ------- | -------- |
+| John    | Math    | Painting |
+| John    | Math    | Chess    |
+| John    | Physics | Painting |
+| John    | Physics | Chess    |
+
