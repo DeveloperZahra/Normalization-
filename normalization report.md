@@ -225,3 +225,17 @@ Feature
 Supplier
 
 Data combinations can be misleading without careful normalization.
+
+----------------------------------------------
+
+🔸 A simple comparison between the types of database normalization
+
+| Normal Form | Key Issue Resolved        | Ensures That...                            |
+| ----------- | ------------------------- | ------------------------------------------ |
+| 1NF         | Repeating groups          | Atomic values only                         |
+| 2NF         | Partial dependencies      | All non-key attributes depend on full PK   |
+| 3NF         | Transitive dependencies   | Attributes depend only on the key          |
+| BCNF        | Determinant issues        | Determinants must be candidate keys        |
+| 4NF         | Multi-valued dependencies | No unrelated multi-valued facts            |
+| 5NF         | Join dependencies         | Reconstructable without loss or redundancy |
+
