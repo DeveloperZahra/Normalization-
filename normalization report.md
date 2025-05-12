@@ -141,6 +141,8 @@ Use BCNF when non-prime attributes determine other fields but are not candidate 
 
 Here, Professor → Department, but Professor is not a candidate key.
 
+🔹After BCNF: 
+
 * ProfessorDept Table
 
 | Professor | Department |
@@ -180,3 +182,46 @@ Apply 4NF when multiple independent multi-valued facts exist in the same table.
 | John    | Physics | Painting |
 | John    | Physics | Chess    |
 
+  🔹 After 4NF:
+	
+* StudentCourses Table
+	
+| Student | Course  |
+| ------- | ------- |
+| John    | Math    |
+| John    | Physics |
+
+* StudentHobbies Table
+
+| Student | Hobby    |
+| ------- | -------- |
+| John    | Painting |
+| John    | Chess    |
+
+-------------------------------------
+
+6) 5NF – Fifth Normal Form (PJNF)
+ 
+🔹Definition:
+
+A relation is in 5NF if:
+
+It is in 4NF
+
+It has no join dependencies that are not implied by candidate keys
+
+🔹 Use Case:
+
+Use 5NF when reconstructing data from decomposed tables causes lossless join issues.
+
+🔹 Before 5NF (Conceptual)
+
+Imagine a table that stores information like:
+
+Model
+
+Feature
+
+Supplier
+
+Data combinations can be misleading without careful normalization.
